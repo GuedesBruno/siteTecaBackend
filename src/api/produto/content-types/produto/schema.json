@@ -50,11 +50,11 @@
     "destaque": {
       "type": "boolean"
     },
-    "categorias": {
+    "subcategoria": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::categoria.categoria",
-      "mappedBy": "produtos"
+      "relation": "manyToOne",
+      "target": "api::subcategoria.subcategoria",
+      "inversedBy": "produtos"
     }
   }
 }

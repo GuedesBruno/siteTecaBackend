@@ -18,10 +18,10 @@
       "type": "uid",
       "targetField": "nome"
     },
-    "produtos": {
+    "subcategoria": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::produto.produto",
+      "relation": "manyToOne",
+      "target": "api::subcategoria.subcategoria",
       "inversedBy": "categorias"
     }
   }

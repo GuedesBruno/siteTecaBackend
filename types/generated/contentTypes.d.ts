@@ -464,9 +464,12 @@ export interface ApiCategoriaCategoria extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     nome: Schema.Attribute.String;
-    produtos: Schema.Attribute.Relation<'manyToMany', 'api::produto.produto'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'nome'>;
+    subcategoria: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::subcategoria.subcategoria'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -484,10 +487,6 @@ export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    categorias: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::categoria.categoria'
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -509,6 +508,45 @@ export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     nome: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'nome'>;
+    subcategoria: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::subcategoria.subcategoria'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSubcategoriaSubcategoria
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'subcategorias';
+  info: {
+    displayName: 'Subcategoria';
+    pluralName: 'subcategorias';
+    singularName: 'subcategoria';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    categorias: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::categoria.categoria'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::subcategoria.subcategoria'
+    > &
+      Schema.Attribute.Private;
+    nome: Schema.Attribute.String;
+    produtos: Schema.Attribute.Relation<'oneToMany', 'api::produto.produto'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'nome'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -1030,6 +1068,7 @@ declare module '@strapi/strapi' {
       'api::banner-site.banner-site': ApiBannerSiteBannerSite;
       'api::categoria.categoria': ApiCategoriaCategoria;
       'api::produto.produto': ApiProdutoProduto;
+      'api::subcategoria.subcategoria': ApiSubcategoriaSubcategoria;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
