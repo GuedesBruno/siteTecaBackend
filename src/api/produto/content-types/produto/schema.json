@@ -49,6 +49,11 @@
     },
     "destaque": {
       "type": "boolean"
+    },
+    "subcategoria": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::subcategoria.subcategoria"
     }
   }
 }

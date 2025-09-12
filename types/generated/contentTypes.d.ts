@@ -506,6 +506,10 @@ export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
     nome: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'nome'>;
+    subcategoria: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::subcategoria.subcategoria'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
