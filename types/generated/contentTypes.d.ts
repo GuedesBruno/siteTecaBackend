@@ -466,6 +466,10 @@ export interface ApiCategoriaCategoria extends Struct.CollectionTypeSchema {
     nome: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'nome'>;
+    subcategorias: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::subcategoria.subcategoria'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -528,6 +532,10 @@ export interface ApiSubcategoriaSubcategoria
     draftAndPublish: true;
   };
   attributes: {
+    categoria: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::categoria.categoria'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

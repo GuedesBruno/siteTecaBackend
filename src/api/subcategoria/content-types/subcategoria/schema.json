@@ -17,6 +17,12 @@
     "slug": {
       "type": "uid",
       "targetField": "nome"
+    },
+    "categoria": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::categoria.categoria",
+      "inversedBy": "subcategorias"
     }
   }
 }
