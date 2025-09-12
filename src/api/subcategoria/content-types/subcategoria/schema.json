@@ -17,18 +17,6 @@
     "slug": {
       "type": "uid",
       "targetField": "nome"
-    },
-    "categorias": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::categoria.categoria",
-      "mappedBy": "subcategoria"
-    },
-    "produtos": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::produto.produto",
-      "mappedBy": "subcategoria"
     }
   }
 }

@@ -49,12 +49,6 @@
     },
     "destaque": {
       "type": "boolean"
-    },
-    "subcategoria": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::subcategoria.subcategoria",
-      "inversedBy": "produtos"
     }
   }
 }
