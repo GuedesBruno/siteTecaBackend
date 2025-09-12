@@ -52,8 +52,9 @@
     },
     "subcategoria": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::subcategoria.subcategoria"
+      "relation": "manyToOne",
+      "target": "api::subcategoria.subcategoria",
+      "inversedBy": "produtos"
     }
   }
 }

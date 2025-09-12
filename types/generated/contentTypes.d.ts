@@ -511,7 +511,7 @@ export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'nome'>;
     subcategoria: Schema.Attribute.Relation<
-      'oneToOne',
+      'manyToOne',
       'api::subcategoria.subcategoria'
     >;
     updatedAt: Schema.Attribute.DateTime;
@@ -546,6 +546,7 @@ export interface ApiSubcategoriaSubcategoria
     > &
       Schema.Attribute.Private;
     nome: Schema.Attribute.String;
+    produtos: Schema.Attribute.Relation<'oneToMany', 'api::produto.produto'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'nome'>;
     updatedAt: Schema.Attribute.DateTime;
