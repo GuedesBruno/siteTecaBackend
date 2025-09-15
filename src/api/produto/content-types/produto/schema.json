@@ -40,9 +40,6 @@
         "audios"
       ]
     },
-    "Documentos": {
-      "type": "text"
-    },
     "slug": {
       "type": "uid",
       "targetField": "nome"
@@ -55,6 +52,15 @@
       "relation": "manyToOne",
       "target": "api::subcategoria.subcategoria",
       "inversedBy": "produtos"
+    },
+    "visao_geral": {
+      "type": "text"
+    },
+    "videos": {
+      "type": "text"
+    },
+    "caracteristicas_funcionais": {
+      "type": "blocks"
     }
   }
 }

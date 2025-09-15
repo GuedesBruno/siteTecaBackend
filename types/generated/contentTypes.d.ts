@@ -487,13 +487,13 @@ export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    caracteristicas_funcionais: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     descricao_curta: Schema.Attribute.String;
     descricao_longa: Schema.Attribute.Blocks;
     destaque: Schema.Attribute.Boolean;
-    Documentos: Schema.Attribute.Text;
     galeria_de_imagens: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
@@ -517,6 +517,8 @@ export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    videos: Schema.Attribute.Text;
+    visao_geral: Schema.Attribute.Text;
   };
 }
 
