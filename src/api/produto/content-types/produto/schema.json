@@ -61,6 +61,19 @@
     },
     "caracteristicas_funcionais": {
       "type": "blocks"
+    },
+    "caracteristicas_tecnicas": {
+      "type": "blocks"
+    },
+    "documentos": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

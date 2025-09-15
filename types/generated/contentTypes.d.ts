@@ -488,12 +488,17 @@ export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
   };
   attributes: {
     caracteristicas_funcionais: Schema.Attribute.Blocks;
+    caracteristicas_tecnicas: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     descricao_curta: Schema.Attribute.String;
     descricao_longa: Schema.Attribute.Blocks;
     destaque: Schema.Attribute.Boolean;
+    documentos: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     galeria_de_imagens: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
