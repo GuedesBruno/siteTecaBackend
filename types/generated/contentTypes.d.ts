@@ -487,6 +487,7 @@ export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    acessorios: Schema.Attribute.Text;
     caracteristicas_funcionais: Schema.Attribute.Blocks;
     caracteristicas_tecnicas: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
